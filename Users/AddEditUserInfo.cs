@@ -97,6 +97,11 @@ namespace DVLD_Project
                     _Mode = enMode.Update;
                 }
 
+                if(_User.UserID == clsGlobal.CurrentUser.UserID)
+                {
+                    clsGlobal.CurrentUser = _User;
+                }
+
                 MessageBox.Show("Data saved succesfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

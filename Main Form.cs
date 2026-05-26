@@ -63,5 +63,31 @@ namespace DVLD_Project
             Form frm = new ChangePassword(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
         }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageApplicationTypes frm = new ManageApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageTestTypes frm = new ManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewUpdateLocalDrivingLicenseApplication frm = new NewUpdateLocalDrivingLicenseApplication();
+
+            frm.ShowDialog();
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LocalDrivingLicenseApplications frm = new LocalDrivingLicenseApplications();
+
+            frm.ShowDialog();
+        }
     }
 }

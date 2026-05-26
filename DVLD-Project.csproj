@@ -48,6 +48,42 @@
   <ItemGroup>
     <Compile Include="GlobalClasses\clsGlobal.cs" />
     <Compile Include="GlobalClasses\clsUtil.cs" />
+    <Compile Include="ApplicationType\ManageApplicationTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationType\ManageApplicationTypes.Designer.cs">
+      <DependentUpon>ManageApplicationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationType\UpdateApplicationType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationType\UpdateApplicationType.Designer.cs">
+      <DependentUpon>UpdateApplicationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications.Designer.cs">
+      <DependentUpon>LocalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewUpdateLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewUpdateLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>NewUpdateLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestType\ManageTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestType\ManageTestTypes.Designer.cs">
+      <DependentUpon>ManageTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestType\UpdateTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestType\UpdateTestType.Designer.cs">
+      <DependentUpon>UpdateTestType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +158,24 @@
     <Compile Include="Users\UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ApplicationType\ManageApplicationTypes.resx">
+      <DependentUpon>ManageApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationType\UpdateApplicationType.resx">
+      <DependentUpon>UpdateApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalDrivingLicenseApplications.resx">
+      <DependentUpon>LocalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewUpdateLocalDrivingLicenseApplication.resx">
+      <DependentUpon>NewUpdateLocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestType\ManageTestTypes.resx">
+      <DependentUpon>ManageTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestType\UpdateTestType.resx">
+      <DependentUpon>UpdateTestType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +339,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PersonDetails 322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Application Types 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Driver License 48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manage Applications 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Detain 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Application Types 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestType 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test Type 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestType 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Driving License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LocalDriving License.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manage Applications 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Application 64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
