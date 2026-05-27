@@ -37,6 +37,8 @@ namespace DVLD_Project
                 dgvData.Columns["FullName"].Width = 180;
                 dgvData.Columns["ApplicationDate"].Width = 150;
             }
+
+            cbFilter.SelectedIndex = 0;
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -47,5 +49,37 @@ namespace DVLD_Project
 
             LocalDrivingLicenseApplications_Load(null, null);
         }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtFiltering.Visible = (cbFilter.Text != "None"))
+            {
+                txtFiltering.Clear();
+                txtFiltering.Focus();
+            }     
+        }
+
+        private void txtFiltering_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFiltering.Text) || cbFilter.Text == "None")
+                _AllLocalDrivingLincenseApplications.DefaultView.RowFilter = "";
+
+            else if (cbFilter.Text != "L.D.L.AppID")
+                _AllLocalDrivingLincenseApplications.DefaultView.RowFilter =
+                    $"{cbFilter.Text} like '{txtFiltering.Text}%'";
+
+            else
+                _AllLocalDrivingLincenseApplications.DefaultView.RowFilter =
+                   $"{cbFilter.Text} = {txtFiltering.Text}";
+            lblRecords.Text = dgvData.Rows.Count.ToString();
+        }
+
+        private void txtFiltering_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cbFilter.Text == "L.D.L.AppID")
+                e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
+        }
+
+      
     }
 }

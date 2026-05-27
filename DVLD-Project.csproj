@@ -72,6 +72,12 @@
     <Compile Include="NewUpdateLocalDrivingLicenseApplication.Designer.cs">
       <DependentUpon>NewUpdateLocalDrivingLicenseApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleTest.Designer.cs">
+      <DependentUpon>ScheduleTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestType\ManageTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     </Compile>
     <Compile Include="TestType\UpdateTestType.Designer.cs">
       <DependentUpon>UpdateTestType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucDrivingLicenseApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDrivingLicenseApplicationInfo.Designer.cs">
+      <DependentUpon>ucDrivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\ChangePassword.cs">
       <SubType>Form</SubType>
@@ -158,6 +170,12 @@
     <Compile Include="Users\UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="VisionTestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisionTestAppointments.Designer.cs">
+      <DependentUpon>VisionTestAppointments.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ApplicationType\ManageApplicationTypes.resx">
       <DependentUpon>ManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,11 +188,17 @@
     <EmbeddedResource Include="NewUpdateLocalDrivingLicenseApplication.resx">
       <DependentUpon>NewUpdateLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleTest.resx">
+      <DependentUpon>ScheduleTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestType\ManageTestTypes.resx">
       <DependentUpon>ManageTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestType\UpdateTestType.resx">
       <DependentUpon>UpdateTestType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDrivingLicenseApplicationInfo.resx">
+      <DependentUpon>ucDrivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
@@ -221,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisionTestAppointments.resx">
+      <DependentUpon>VisionTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -378,6 +405,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\New Application 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete 32 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IssueDrivingLicense 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Driver License 481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vision Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Written Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Street Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vision 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddAppointment 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
