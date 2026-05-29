@@ -80,6 +80,48 @@ namespace DVLD_Project
                 e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
         }
 
-      
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            int NumberOfTests = (int)dgvData.CurrentRow.Cells["PassedTests"].Value;
+
+            scheduleVisionTestToolStripMenuItem.Enabled = (NumberOfTests == 0);
+            scheduleWrittenTestToolStripMenuItem.Enabled = (NumberOfTests == 1);
+            scheduleStreetToolStripMenuItem.Enabled = (NumberOfTests == 2);
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditTestAppointments frmTest =
+                new AddEditTestAppointments((int)dgvData.CurrentRow.Cells[0].Value,clsTestTypes.enTestType.VisionTest);
+
+            frmTest.ShowDialog();
+
+            LocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditTestAppointments frmTest =
+            new AddEditTestAppointments((int)dgvData.CurrentRow.Cells[0].Value, clsTestTypes.enTestType.WrittenTest);
+
+            frmTest.ShowDialog();
+
+            LocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void scheduleStreetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditTestAppointments frmTest =
+            new AddEditTestAppointments((int)dgvData.CurrentRow.Cells[0].Value, clsTestTypes.enTestType.PracticalTest);
+
+            frmTest.ShowDialog();
+
+            LocalDrivingLicenseApplications_Load(null, null);
+        }
     }
 }

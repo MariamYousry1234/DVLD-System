@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.gbRetakeTest = new System.Windows.Forms.GroupBox();
             this.lblRTestAppID = new System.Windows.Forms.Label();
             this.lblTotalFees = new System.Windows.Forms.Label();
             this.lblRAppFees = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblFees = new System.Windows.Forms.Label();
             this.lblTrail = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -49,19 +50,20 @@
             this.lblDLAppID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.pbPeople = new System.Windows.Forms.PictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblLocked = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
+            this.gbRetakeTest.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblLocked);
             this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.gbRetakeTest);
+            this.groupBox1.Controls.Add(this.dtpDate);
             this.groupBox1.Controls.Add(this.lblFees);
             this.groupBox1.Controls.Add(this.lblTrail);
             this.groupBox1.Controls.Add(this.lblName);
@@ -74,31 +76,45 @@
             this.groupBox1.Controls.Add(this.lblDLAppID);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblTitle);
-            this.groupBox1.Controls.Add(this.pbPeople);
+            this.groupBox1.Controls.Add(this.pbImage);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(484, 662);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Vision Test";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.Text = "???";
             // 
-            // groupBox2
+            // btnSave
             // 
-            this.groupBox2.Controls.Add(this.lblRTestAppID);
-            this.groupBox2.Controls.Add(this.lblTotalFees);
-            this.groupBox2.Controls.Add(this.lblRAppFees);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(6, 509);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(467, 100);
-            this.groupBox2.TabIndex = 73;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "RetakeTestInfo";
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Image = global::DVLD_Project.Properties.Resources.Save_32;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(330, 617);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(139, 40);
+            this.btnSave.TabIndex = 74;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // gbRetakeTest
+            // 
+            this.gbRetakeTest.Controls.Add(this.lblRTestAppID);
+            this.gbRetakeTest.Controls.Add(this.lblTotalFees);
+            this.gbRetakeTest.Controls.Add(this.lblRAppFees);
+            this.gbRetakeTest.Controls.Add(this.label9);
+            this.gbRetakeTest.Controls.Add(this.label8);
+            this.gbRetakeTest.Controls.Add(this.label7);
+            this.gbRetakeTest.Enabled = false;
+            this.gbRetakeTest.Location = new System.Drawing.Point(6, 509);
+            this.gbRetakeTest.Name = "gbRetakeTest";
+            this.gbRetakeTest.Size = new System.Drawing.Size(467, 100);
+            this.gbRetakeTest.TabIndex = 73;
+            this.gbRetakeTest.TabStop = false;
+            this.gbRetakeTest.Text = "RetakeTestInfo";
             // 
             // lblRTestAppID
             // 
@@ -160,15 +176,15 @@
             this.label7.TabIndex = 69;
             this.label7.Text = "R.App.Fees :";
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(113, 405);
-            this.dateTimePicker1.MinDate = new System.DateTime(2026, 5, 27, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker1.TabIndex = 72;
+            this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(113, 405);
+            this.dtpDate.MinDate = new System.DateTime(2026, 5, 27, 0, 0, 0, 0);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(200, 29);
+            this.dtpDate.TabIndex = 72;
             // 
             // lblFees
             // 
@@ -194,7 +210,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(151, 310);
+            this.lblName.Location = new System.Drawing.Point(151, 312);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(43, 24);
             this.lblName.TabIndex = 69;
@@ -234,7 +250,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 310);
+            this.label3.Location = new System.Drawing.Point(20, 312);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 24);
             this.label3.TabIndex = 65;
@@ -244,7 +260,7 @@
             // 
             this.lblDrivingClass.AutoSize = true;
             this.lblDrivingClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDrivingClass.Location = new System.Drawing.Point(159, 261);
+            this.lblDrivingClass.Location = new System.Drawing.Point(159, 266);
             this.lblDrivingClass.Name = "lblDrivingClass";
             this.lblDrivingClass.Size = new System.Drawing.Size(43, 24);
             this.lblDrivingClass.TabIndex = 64;
@@ -254,7 +270,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 261);
+            this.label2.Location = new System.Drawing.Point(20, 267);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 63;
@@ -264,7 +280,7 @@
             // 
             this.lblDLAppID.AutoSize = true;
             this.lblDLAppID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDLAppID.Location = new System.Drawing.Point(159, 213);
+            this.lblDLAppID.Location = new System.Drawing.Point(159, 221);
             this.lblDLAppID.Name = "lblDLAppID";
             this.lblDLAppID.Size = new System.Drawing.Size(43, 24);
             this.lblDLAppID.TabIndex = 62;
@@ -274,7 +290,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 213);
+            this.label1.Location = new System.Drawing.Point(20, 222);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 24);
             this.label1.TabIndex = 61;
@@ -285,49 +301,47 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Palatino Linotype", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(145, 147);
+            this.lblTitle.Location = new System.Drawing.Point(118, 138);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(209, 43);
             this.lblTitle.TabIndex = 60;
             this.lblTitle.Text = "Schedule Test";
             // 
-            // button1
+            // pbImage
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::DVLD_Project.Properties.Resources.Close_32;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(186, 704);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 40);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = false;
+            this.pbImage.Image = global::DVLD_Project.Properties.Resources.Vision_512;
+            this.pbImage.Location = new System.Drawing.Point(148, 19);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(173, 109);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 59;
+            this.pbImage.TabStop = false;
             // 
-            // btnSave
+            // btnClose
             // 
-            this.btnSave.BackColor = System.Drawing.Color.White;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = global::DVLD_Project.Properties.Resources.Save_32;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(333, 617);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(139, 40);
-            this.btnSave.TabIndex = 74;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnClose.BackColor = System.Drawing.Color.White;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::DVLD_Project.Properties.Resources.Close_32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(186, 704);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(139, 40);
+            this.btnClose.TabIndex = 29;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pbPeople
+            // lblLocked
             // 
-            this.pbPeople.Image = global::DVLD_Project.Properties.Resources.Vision_512;
-            this.pbPeople.Location = new System.Drawing.Point(163, 19);
-            this.pbPeople.Name = "pbPeople";
-            this.pbPeople.Size = new System.Drawing.Size(173, 109);
-            this.pbPeople.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPeople.TabIndex = 59;
-            this.pbPeople.TabStop = false;
+            this.lblLocked.AutoSize = true;
+            this.lblLocked.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocked.ForeColor = System.Drawing.Color.Red;
+            this.lblLocked.Location = new System.Drawing.Point(32, 181);
+            this.lblLocked.Name = "lblLocked";
+            this.lblLocked.Size = new System.Drawing.Size(133, 26);
+            this.lblLocked.TabIndex = 75;
+            this.lblLocked.Text = "Schedule Test";
             // 
             // ScheduleTest
             // 
@@ -335,16 +349,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(508, 750);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
             this.Name = "ScheduleTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule Test";
+            this.Load += new System.EventHandler(this.ScheduleTest_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).EndInit();
+            this.gbRetakeTest.ResumeLayout(false);
+            this.gbRetakeTest.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -353,7 +368,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.PictureBox pbPeople;
+        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -361,19 +376,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDLAppID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.GroupBox gbRetakeTest;
+        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label lblFees;
         private System.Windows.Forms.Label lblTrail;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblRAppFees;
         private System.Windows.Forms.Label lblRTestAppID;
         private System.Windows.Forms.Label lblTotalFees;
+        private System.Windows.Forms.Label lblLocked;
     }
 }

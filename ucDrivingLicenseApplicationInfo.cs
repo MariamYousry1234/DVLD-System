@@ -22,7 +22,7 @@ namespace DVLD_Project
 
         }
 
-        public void LoadLocalApplicationInfo(int LDAppID)
+        public bool LoadLocalApplicationInfo(int LDAppID)
         {
             _LDAppID = LDAppID;
             _LocalDrivingApplicationInfo = clsLocalDrivingApplicationLicense.FindByID(LDAppID);
@@ -31,11 +31,12 @@ namespace DVLD_Project
             {
                 MessageBox.Show("This Application Not Found !", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
 
             _ShowLocalApplicationInfo();
+            return true;
         }
 
         private void _ShowLocalApplicationInfo()
@@ -46,7 +47,8 @@ namespace DVLD_Project
             lblApplicationID.Text = _LocalDrivingApplicationInfo.ApplicationID.ToString();
             lblDate.Text = _LocalDrivingApplicationInfo.ApplicationDate.ToString("dd/MM/yyyy");
             lblStatusDate.Text=_LocalDrivingApplicationInfo.LastStatusDate.ToString("dd/MM/yyyy");
-            
+            lblCreatedBy.Text = _LocalDrivingApplicationInfo.CreatedUserInfo.Username;
+
             switch(_LocalDrivingApplicationInfo.ApplicationStaus)
             {
                 case clsLocalDrivingApplicationLicense.enApplicationStatus.New:

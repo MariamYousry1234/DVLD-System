@@ -78,6 +78,12 @@
     <Compile Include="ScheduleTest.Designer.cs">
       <DependentUpon>ScheduleTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="TakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeTest.Designer.cs">
+      <DependentUpon>TakeTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestType\ManageTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,11 +176,11 @@
     <Compile Include="Users\UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisionTestAppointments.cs">
+    <Compile Include="AddEditTestAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisionTestAppointments.Designer.cs">
-      <DependentUpon>VisionTestAppointments.cs</DependentUpon>
+    <Compile Include="AddEditTestAppointments.Designer.cs">
+      <DependentUpon>AddEditTestAppointments.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ApplicationType\ManageApplicationTypes.resx">
       <DependentUpon>ManageApplicationTypes.cs</DependentUpon>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleTest.resx">
       <DependentUpon>ScheduleTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeTest.resx">
+      <DependentUpon>TakeTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestType\ManageTestTypes.resx">
       <DependentUpon>ManageTestTypes.cs</DependentUpon>
@@ -246,8 +255,8 @@
     <EmbeddedResource Include="Users\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisionTestAppointments.resx">
-      <DependentUpon>VisionTestAppointments.cs</DependentUpon>
+    <EmbeddedResource Include="AddEditTestAppointments.resx">
+      <DependentUpon>AddEditTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -438,6 +447,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddAppointment 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WallPaper2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit 322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

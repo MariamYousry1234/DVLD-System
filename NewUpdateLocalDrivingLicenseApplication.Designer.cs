@@ -285,6 +285,7 @@
             this.Name = "NewUpdateLocalDrivingLicenseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Local Driving License Application";
+            this.Activated += new System.EventHandler(this.NewUpdateLocalDrivingLicenseApplication_Activated);
             this.Load += new System.EventHandler(this.NewUpdateLocalDrivingLicenseApplication_Load);
             this.tabControl1.ResumeLayout(false);
             this.tbPersonalInfo.ResumeLayout(false);

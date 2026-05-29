@@ -1,6 +1,6 @@
 ﻿namespace DVLD_Project
 {
-    partial class VisionTestAppointments
+    partial class AddEditTestAppointments
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblRecords = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.ucDrivingLicenseApplicationInfo1 = new DVLD_Project.ucDrivingLicenseApplicationInfo();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.pbPeople = new System.Windows.Forms.PictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.ucDrivingLicenseApplicationInfo1 = new DVLD_Project.ucDrivingLicenseApplicationInfo();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -46,7 +51,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Palatino Linotype", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(123, 122);
+            this.lblTitle.Location = new System.Drawing.Point(195, 122);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(384, 43);
             this.lblTitle.TabIndex = 58;
@@ -79,25 +84,43 @@
             this.dgvData.AllowUserToOrderColumns = true;
             this.dgvData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Location = new System.Drawing.Point(17, 618);
+            this.dgvData.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvData.Location = new System.Drawing.Point(23, 617);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(633, 118);
+            this.dgvData.Size = new System.Drawing.Size(717, 118);
             this.dgvData.TabIndex = 60;
             // 
-            // ucDrivingLicenseApplicationInfo1
+            // contextMenuStrip1
             // 
-            this.ucDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(12, 181);
-            this.ucDrivingLicenseApplicationInfo1.Name = "ucDrivingLicenseApplicationInfo1";
-            this.ucDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(638, 386);
-            this.ucDrivingLicenseApplicationInfo1.TabIndex = 65;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.takeTestToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DVLD_Project.Properties.Resources.edit_322;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // takeTestToolStripMenuItem
+            // 
+            this.takeTestToolStripMenuItem.Image = global::DVLD_Project.Properties.Resources.Test_32;
+            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 586);
+            this.label2.Location = new System.Drawing.Point(18, 581);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 28);
             this.label2.TabIndex = 66;
@@ -110,9 +133,9 @@
             this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNew.Image = global::DVLD_Project.Properties.Resources.AddAppointment_32;
-            this.btnAddNew.Location = new System.Drawing.Point(598, 575);
+            this.btnAddNew.Location = new System.Drawing.Point(685, 567);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(47, 39);
+            this.btnAddNew.Size = new System.Drawing.Size(54, 44);
             this.btnAddNew.TabIndex = 64;
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
@@ -125,45 +148,54 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::DVLD_Project.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(500, 742);
+            this.btnClose.Location = new System.Drawing.Point(589, 742);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(150, 40);
             this.btnClose.TabIndex = 63;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pbPeople
+            // pbImage
             // 
-            this.pbPeople.Image = global::DVLD_Project.Properties.Resources.Vision_512;
-            this.pbPeople.Location = new System.Drawing.Point(228, 10);
-            this.pbPeople.Name = "pbPeople";
-            this.pbPeople.Size = new System.Drawing.Size(173, 109);
-            this.pbPeople.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPeople.TabIndex = 57;
-            this.pbPeople.TabStop = false;
+            this.pbImage.Image = global::DVLD_Project.Properties.Resources.Vision_512;
+            this.pbImage.Location = new System.Drawing.Point(300, 10);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(173, 109);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 57;
+            this.pbImage.TabStop = false;
             // 
-            // VisionTestAppointments
+            // ucDrivingLicenseApplicationInfo1
+            // 
+            this.ucDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(12, 168);
+            this.ucDrivingLicenseApplicationInfo1.Name = "ucDrivingLicenseApplicationInfo1";
+            this.ucDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(739, 393);
+            this.ucDrivingLicenseApplicationInfo1.TabIndex = 67;
+            // 
+            // AddEditTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(657, 786);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(756, 786);
             this.Controls.Add(this.ucDrivingLicenseApplicationInfo1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRecords);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.pbPeople);
+            this.Controls.Add(this.pbImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "VisionTestAppointments";
+            this.Name = "AddEditTestAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vision Test Appointments";
             this.Load += new System.EventHandler(this.VisionTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,13 +204,16 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.PictureBox pbPeople;
+        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblRecords;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvData;
-        private ucDrivingLicenseApplicationInfo ucDrivingLicenseApplicationInfo1;
         private System.Windows.Forms.Label label2;
+        private ucDrivingLicenseApplicationInfo ucDrivingLicenseApplicationInfo1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem takeTestToolStripMenuItem;
     }
 }

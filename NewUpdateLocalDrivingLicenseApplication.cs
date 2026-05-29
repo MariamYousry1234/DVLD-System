@@ -103,7 +103,6 @@ namespace DVLD_Project
 
             lblCreatedBy.Text =clsUser.Find( LocalDrivingLicenseApplication.CreatedByUserID).Username;
 
-
         }
 
         private void SaveData()
@@ -113,9 +112,14 @@ namespace DVLD_Project
 
             LocalDrivingLicenseApplication.PersonID = ucPersonInformationWithFilteration1.PersonID;
 
+            LocalDrivingLicenseApplication.ApplicationDate = 
+                Convert.ToDateTime(lblApplicationDate.Text);
+
             LocalDrivingLicenseApplication.ApplicationTypeID = clsApplication.enApplicationType.NewLocal;
 
             LocalDrivingLicenseApplication.ApplicationStaus = clsApplication.enApplicationStatus.New;
+
+            LocalDrivingLicenseApplication.LastStatusDate = DateTime.Now; 
 
             LocalDrivingLicenseApplication.ApplicationFees = LocalApplicationFees;
 
@@ -189,6 +193,11 @@ namespace DVLD_Project
 
             SaveData();
 
+        }
+
+        private void NewUpdateLocalDrivingLicenseApplication_Activated(object sender, EventArgs e)
+        {
+            ucPersonInformationWithFilteration1.FilterFocus();
         }
     }
 }
