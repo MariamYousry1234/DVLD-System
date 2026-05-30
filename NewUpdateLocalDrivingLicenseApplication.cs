@@ -125,7 +125,7 @@ namespace DVLD_Project
 
             LocalDrivingLicenseApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
-            LocalDrivingLicenseApplication.LicenseClassID = (cbApplicationClass.SelectedIndex + 1);
+            LocalDrivingLicenseApplication.LicenseClassID = clsLicenseClass.Find(cbApplicationClass.Text).LicenseClassID;
 
             if (LocalDrivingLicenseApplication.Save())
             {
@@ -177,11 +177,25 @@ namespace DVLD_Project
         {
             int ClassID = clsLicenseClass.Find(cbApplicationClass.Text).LicenseClassID;
 
+
+            bool IsHasAlreadyActiveLicense=
+                clsLicense.IsPersonHasActiveLicenseClass(ucPersonInformationWithFilteration1.PersonID,
+               ClassID);
+
+
+            if(IsHasAlreadyActiveLicense)
+            {
+                MessageBox.Show("This person already has an active license of this class", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
             int Id = 
                 clsLocalDrivingApplicationLicense.CheckApplicationActivation(
                     ucPersonInformationWithFilteration1.PersonID,
                     clsLocalDrivingApplicationLicense.enApplicationStatus.New,
-               ClassID);
+                     ClassID);
 
             if (Id != -1)
             {
