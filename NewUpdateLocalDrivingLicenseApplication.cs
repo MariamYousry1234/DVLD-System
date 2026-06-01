@@ -185,7 +185,7 @@ namespace DVLD_Project
 
             if(IsHasAlreadyActiveLicense)
             {
-                MessageBox.Show("This person already has an active license of this class", "Error",
+                MessageBox.Show("This person already have a license with same applied driving class,Choose different driving class", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;

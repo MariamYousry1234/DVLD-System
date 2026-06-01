@@ -66,6 +66,12 @@
     <Compile Include="IssueDrivingLicenseForTheFirstTime.Designer.cs">
       <DependentUpon>IssueDrivingLicenseForTheFirstTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseHistory.Designer.cs">
+      <DependentUpon>LicenseHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="LicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,12 @@
     </Compile>
     <Compile Include="LocalDrivingLicenseApplications.Designer.cs">
       <DependentUpon>LocalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageDrivers.Designer.cs">
+      <DependentUpon>ManageDrivers.cs</DependentUpon>
     </Compile>
     <Compile Include="NewUpdateLocalDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
@@ -209,11 +221,17 @@
     <EmbeddedResource Include="IssueDrivingLicenseForTheFirstTime.resx">
       <DependentUpon>IssueDrivingLicenseForTheFirstTime.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LicenseHistory.resx">
+      <DependentUpon>LicenseHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LicenseInfo.resx">
       <DependentUpon>LicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LocalDrivingLicenseApplications.resx">
       <DependentUpon>LocalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageDrivers.resx">
+      <DependentUpon>ManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewUpdateLocalDrivingLicenseApplication.resx">
       <DependentUpon>NewUpdateLocalDrivingLicenseApplication.cs</DependentUpon>
@@ -492,6 +510,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LicenseView 400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Driver Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

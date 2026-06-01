@@ -74,7 +74,7 @@ namespace DVLD_Project
             lblIsDetained.Text = "No";
 
 
-            if (!string.IsNullOrEmpty(Driver.PersonInfo.ImagePath))
+            if(!string.IsNullOrEmpty(Driver.PersonInfo.ImagePath))
                 pbImage.ImageLocation=Driver.PersonInfo.ImagePath;
             else
                 pbImage.Image =Driver.PersonInfo.Gender == 1 ?Properties.Resources.Male_512

@@ -160,7 +160,7 @@
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(234, 248);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(234, 226);
             // 
             // showToolStripMenuItem
             // 
@@ -297,7 +297,7 @@
             this.Controls.Add(this.pbUsrs);
             this.Name = "ManageUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ManageUsers";
+            this.Text = "Manage Users";
             this.Load += new System.EventHandler(this.ManageUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

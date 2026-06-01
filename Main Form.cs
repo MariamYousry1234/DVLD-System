@@ -89,5 +89,12 @@ namespace DVLD_Project
 
             frm.ShowDialog();
         }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageDrivers frmListDrivers = new ManageDrivers();
+
+            frmListDrivers.ShowDialog();
+        }
     }
 }

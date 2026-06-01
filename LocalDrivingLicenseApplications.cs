@@ -105,6 +105,13 @@ namespace DVLD_Project
                 clsLicense.IsPersonHasLicenseForThisClass(ApplicationID);
             showLicenseToolStripMenuItem.Enabled = IsHasLicenseForThisClass;
 
+
+            string Status = (string)dgvData.CurrentRow.Cells["Status"].Value;
+
+            editApplicationToolStripMenuItem.Enabled = (Status == "New");
+            deleteApplicationToolStripMenuItem.Enabled = (Status != "Completed");
+            cancelApplicationToolStripMenuItem.Enabled= (Status == "New");
+
         }
 
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,6 +167,84 @@ namespace DVLD_Project
             LicenseInfo frmLicenseInfo = new LicenseInfo(ApplicatonID);
 
             frmLicenseInfo.ShowDialog();
+        }
+
+        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewUpdateLocalDrivingLicenseApplication frm = 
+                new NewUpdateLocalDrivingLicenseApplication((int)dgvData.CurrentRow.Cells[0].Value);
+
+            frm.ShowDialog();
+
+            LocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LDLAppID = (int)dgvData.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingApplicationLicense LDLAppInfo =
+                clsLocalDrivingApplicationLicense.FindByID(LDLAppID);
+
+            if(LDLAppInfo==null)
+            {
+                MessageBox.Show("This Local Driving license Application Not found !", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+
+            }
+
+            if(MessageBox.Show("Are you sure you want to delete this application?","Confirm",MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Information)==DialogResult.OK)
+            {
+                if(clsLocalDrivingApplicationLicense.DeletLocalDrivingLicenseApplication(LDLAppID))
+                {
+                    MessageBox.Show("Application Deleted Successuflly","Deleted",MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("Delete Application Failed", "Faile", MessageBoxButtons.OK,
+                      MessageBoxIcon.Error);
+                }
+            }
+
+            LocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LDLAppID = (int)dgvData.CurrentRow.Cells[0].Value;
+
+            if (MessageBox.Show("Are you sure you want to Cancel this application?", "Confirm", MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                if (clsLocalDrivingApplicationLicense.CancelLocalDrivingLicenseApplication(LDLAppID))
+                {
+                    MessageBox.Show("Application Cancelled Successuflly", "Deleted", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("Cancel Application Failed", "Faile", MessageBoxButtons.OK,
+                      MessageBoxIcon.Error);
+                }
+            }
+
+            LocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void showPersonLicnenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = clsPerson.Find((string)dgvData.CurrentRow.Cells[2].Value).PersonID;
+
+            LicenseHistory frmHistory = new LicenseHistory(PersonID);
+
+            frmHistory.ShowDialog();
+
+            LocalDrivingLicenseApplications_Load(null, null);
         }
     }
 }
