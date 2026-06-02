@@ -26,6 +26,7 @@ namespace DVLD_Project
 
         public void LoadDriverLicenseInfo(int ApplicationID)
         {
+           
             License = clsLicense.FindByApplicationID(ApplicationID);
 
             if(License==null)

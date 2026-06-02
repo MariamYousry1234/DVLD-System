@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LicenseInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ucShowDriverLicenseInfo1 = new DVLD_Project.ucShowDriverLicenseInfo();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ucShowDriverLicenseInfo1 = new DVLD_Project.ucShowDriverLicenseInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +58,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // ucShowDriverLicenseInfo1
-            // 
-            this.ucShowDriverLicenseInfo1.Location = new System.Drawing.Point(12, 221);
-            this.ucShowDriverLicenseInfo1.Name = "ucShowDriverLicenseInfo1";
-            this.ucShowDriverLicenseInfo1.Size = new System.Drawing.Size(816, 405);
-            this.ucShowDriverLicenseInfo1.TabIndex = 2;
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -80,6 +73,13 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ucShowDriverLicenseInfo1
+            // 
+            this.ucShowDriverLicenseInfo1.Location = new System.Drawing.Point(12, 221);
+            this.ucShowDriverLicenseInfo1.Name = "ucShowDriverLicenseInfo1";
+            this.ucShowDriverLicenseInfo1.Size = new System.Drawing.Size(816, 405);
+            this.ucShowDriverLicenseInfo1.TabIndex = 2;
             // 
             // LicenseInfo
             // 
@@ -105,7 +105,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private ucShowDriverLicenseInfo ucShowDriverLicenseInfo1;
         private System.Windows.Forms.Button btnClose;
+        private ucShowDriverLicenseInfo ucShowDriverLicenseInfo1;
     }
 }

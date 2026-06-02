@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Busniess_Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace DVLD_Project
         {
             InitializeComponent();
             _ApplicationID = ApplicationID;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

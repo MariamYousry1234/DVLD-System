@@ -13,12 +13,15 @@ namespace DVLD_Project
 {
     public partial class NewUpdateLocalDrivingLicenseApplication : Form
     {
-
-        float LocalApplicationFees = clsApplicationTypes.Find("New Local Driving License Service").Fees;
+        
+        float LocalApplicationFees = 
+            clsApplicationTypes.Find((int) clsApplication.enApplicationType.NewLocal).Fees;
         enum enMode { AddNew=0,Update=1}
         enMode _Mode;
         clsLocalDrivingApplicationLicense LocalDrivingLicenseApplication;
         int _LocalDrivingApplicationID = -1;
+
+
         public NewUpdateLocalDrivingLicenseApplication()
         {
             InitializeComponent();
@@ -97,7 +100,7 @@ namespace DVLD_Project
 
             lblApplicationDate.Text = LocalDrivingLicenseApplication.ApplicationDate.ToString();
 
-            cbApplicationClass.SelectedIndex = (LocalDrivingLicenseApplication.LicenseClassID - 1);
+            cbApplicationClass.SelectedItem = clsLicenseClass.Find(LocalDrivingLicenseApplication.LicenseClassID).ClassName;
 
             lblApplicationFees.Text = LocalDrivingLicenseApplication.ApplicationFees.ToString();
 
@@ -107,13 +110,10 @@ namespace DVLD_Project
 
         private void SaveData()
         {
-            LocalDrivingLicenseApplication.ApplicationDate =
-                Convert.ToDateTime(lblApplicationDate.Text);
-
+     
             LocalDrivingLicenseApplication.PersonID = ucPersonInformationWithFilteration1.PersonID;
 
-            LocalDrivingLicenseApplication.ApplicationDate = 
-                Convert.ToDateTime(lblApplicationDate.Text);
+            LocalDrivingLicenseApplication.ApplicationDate = DateTime.Now;
 
             LocalDrivingLicenseApplication.ApplicationTypeID = clsApplication.enApplicationType.NewLocal;
 
@@ -131,6 +131,7 @@ namespace DVLD_Project
             {
                 lblApplicationID.Text = LocalDrivingLicenseApplication.LocalDrivingApplicationLicenseID.ToString();
                 _Mode = enMode.Update;
+                ucPersonInformationWithFilteration1.EnableFilter = false;
                 this.Text = "Update Local Driving License Application";
                 lblTitle.Text = "Update Local Driving License Application";
 
@@ -192,9 +193,9 @@ namespace DVLD_Project
             }
 
             int Id = 
-                clsLocalDrivingApplicationLicense.CheckApplicationActivation(
+                clsApplication.CheckApplicationActivation(
                     ucPersonInformationWithFilteration1.PersonID,
-                    clsLocalDrivingApplicationLicense.enApplicationStatus.New,
+                    clsApplication.enApplicationType.NewLocal,
                      ClassID);
 
             if (Id != -1)

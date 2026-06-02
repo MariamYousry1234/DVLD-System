@@ -13,23 +13,38 @@ namespace DVLD_Project
 {
     public partial class ucDrivingLicenseApplicationInfo : UserControl
     {
-        int _LDAppID=-1;
+       
         clsLocalDrivingApplicationLicense _LocalDrivingApplicationInfo;
         public ucDrivingLicenseApplicationInfo()
         {
             InitializeComponent();
 
-
         }
 
         public bool LoadLocalApplicationInfo(int LDAppID)
         {
-            _LDAppID = LDAppID;
+
             _LocalDrivingApplicationInfo = clsLocalDrivingApplicationLicense.FindByID(LDAppID);
 
-            if(_LocalDrivingApplicationInfo == null)
+            if (_LocalDrivingApplicationInfo == null)
             {
-                MessageBox.Show("This Application Not Found !", "Error", MessageBoxButtons.OK,
+                MessageBox.Show("Local Application Not Found !", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+
+
+            _ShowLocalApplicationInfo();
+            return true;
+        }
+
+        public bool LoadLocalAppInfoByApplicationID(int ApplicationID)
+        {
+            _LocalDrivingApplicationInfo = clsLocalDrivingApplicationLicense.FindByApplicationID(ApplicationID);
+
+            if (_LocalDrivingApplicationInfo == null)
+            {
+                MessageBox.Show("Local Application Not Found !", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
             }
@@ -41,42 +56,19 @@ namespace DVLD_Project
 
         private void _ShowLocalApplicationInfo()
         {
+
+            llShowLicenceInfo.Enabled =_LocalDrivingApplicationInfo.IsHaveActiveLicenseClass();
             lblDLAppID.Text = _LocalDrivingApplicationInfo.LocalDrivingApplicationLicenseID.ToString();
             lblLIcenseClass.Text = _LocalDrivingApplicationInfo.LicenseClasssInfo.ClassName;
-            lblPassedTests.Text = clsTest.GetNumberOfPassedTests(_LDAppID).ToString();
-            lblApplicationID.Text = _LocalDrivingApplicationInfo.ApplicationID.ToString();
-            lblDate.Text = _LocalDrivingApplicationInfo.ApplicationDate.ToString("dd/MM/yyyy");
-            lblStatusDate.Text=_LocalDrivingApplicationInfo.LastStatusDate.ToString("dd/MM/yyyy");
-            lblCreatedBy.Text = _LocalDrivingApplicationInfo.CreatedUserInfo.Username;
+            lblPassedTests.Text = _LocalDrivingApplicationInfo.GetNumberOfPassedTests().ToString();
 
-            switch(_LocalDrivingApplicationInfo.ApplicationStaus)
-            {
-                case clsLocalDrivingApplicationLicense.enApplicationStatus.New:
-                    lblStatus.Text = "New";
-                    break;
-
-                case clsLocalDrivingApplicationLicense.enApplicationStatus.Cancelled:
-                    lblStatus.Text = "Cancelled";
-                    break;
-            
-                case clsLocalDrivingApplicationLicense.enApplicationStatus.Completed:
-                    lblStatus.Text = "Completed";
-                    break;
-            }
-
-            lblFees.Text = _LocalDrivingApplicationInfo.ApplicationFees.ToString();
-
-            lblType.Text = _LocalDrivingApplicationInfo.ApplicationType.Title;
-            lblApplicant.Text = _LocalDrivingApplicationInfo.PersonInfo.GetFullName;
+            ucShowApplicationInfo1.LoadApplicationInfo(_LocalDrivingApplicationInfo.ApplicationID);
         }
 
-
-        private void llViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PersonDetails frm = new PersonDetails(_LocalDrivingApplicationInfo.PersonID);
+            LicenseInfo frm = new LicenseInfo(_LocalDrivingApplicationInfo.ApplicationID);
             frm.ShowDialog();
-
-            LoadLocalApplicationInfo(_LDAppID);
         }
-    }
+    }  
 }

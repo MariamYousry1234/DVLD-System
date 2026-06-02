@@ -83,30 +83,26 @@ namespace DVLD_Project
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             int NumberOfTests = (int)dgvData.CurrentRow.Cells["PassedTests"].Value;
+            string Status = (string)dgvData.CurrentRow.Cells["Status"].Value;
 
             scheduleVisionTestToolStripMenuItem.Enabled = (NumberOfTests == 0);
             scheduleWrittenTestToolStripMenuItem.Enabled = (NumberOfTests == 1);
             scheduleStreetToolStripMenuItem.Enabled = (NumberOfTests == 2);
 
-            schduleTestsToolStripMenuItem.Enabled = (NumberOfTests != 3);
+            schduleTestsToolStripMenuItem.Enabled =
+                (NumberOfTests != 3) && (Status != "Cancelled");
 
 
-            int ApplicationID = clsLocalDrivingApplicationLicense.FindByID((int)dgvData.CurrentRow.Cells[0].Value).ApplicationID;
+            int ApplicationID = 
+                clsLocalDrivingApplicationLicense.FindByID((int)dgvData.CurrentRow.Cells[0].Value).ApplicationID;
 
-
-       
-            bool IsAlreadyHasActiveThisLicense = 
-                clsLicense.IsPersonHasActiveLicenseClass(ApplicationID);
+            bool IsHasLicenseForThisClass =
+                         clsLicense.IsPersonHasLicenseForThisClass(ApplicationID);
 
             issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled =
-                ((NumberOfTests == 3) && !IsAlreadyHasActiveThisLicense);
+                ((NumberOfTests == 3) && !IsHasLicenseForThisClass);
 
-            bool IsHasLicenseForThisClass = 
-                clsLicense.IsPersonHasLicenseForThisClass(ApplicationID);
             showLicenseToolStripMenuItem.Enabled = IsHasLicenseForThisClass;
-
-
-            string Status = (string)dgvData.CurrentRow.Cells["Status"].Value;
 
             editApplicationToolStripMenuItem.Enabled = (Status == "New");
             deleteApplicationToolStripMenuItem.Enabled = (Status != "Completed");
@@ -238,11 +234,21 @@ namespace DVLD_Project
 
         private void showPersonLicnenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int PersonID = clsPerson.Find((string)dgvData.CurrentRow.Cells[2].Value).PersonID;
 
-            LicenseHistory frmHistory = new LicenseHistory(PersonID);
+            LicenseHistory frmHistory = 
+                new LicenseHistory((string)dgvData.CurrentRow.Cells[2].Value);
 
             frmHistory.ShowDialog();
+
+            LocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LocalDrivingLicenseApplicationInfo frmInfo =
+              new LocalDrivingLicenseApplicationInfo((int)dgvData.CurrentRow.Cells[0].Value);
+
+            frmInfo.ShowDialog();
 
             LocalDrivingLicenseApplications_Load(null, null);
         }

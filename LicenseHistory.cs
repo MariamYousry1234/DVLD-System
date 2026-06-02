@@ -17,12 +17,11 @@ namespace DVLD_Project
 
         DataTable _AllLocalLicensesHistory;
 
-        public LicenseHistory(int PersonID)
+        public LicenseHistory(string NationalNo)
         {
             InitializeComponent();
-
-            _PersonID = PersonID;
-
+  
+            _PersonID = clsPerson.Find(NationalNo).PersonID;
         }
 
         private void LicenseHistory_Load(object sender, EventArgs e)
