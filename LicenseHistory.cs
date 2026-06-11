@@ -15,35 +15,44 @@ namespace DVLD_Project
     {
         int _PersonID = -1;
 
-        DataTable _AllLocalLicensesHistory;
+        public LicenseHistory()
+        {
+            InitializeComponent();          
+        }
 
-        public LicenseHistory(string NationalNo)
+        public LicenseHistory(int PersonID)
         {
             InitializeComponent();
   
-            _PersonID = clsPerson.Find(NationalNo).PersonID;
+            _PersonID = PersonID;
         }
 
         private void LicenseHistory_Load(object sender, EventArgs e)
         {
-            ucPersonInformationWithFilteration1.LoadData(_PersonID);
-            ucPersonInformationWithFilteration1.EnableFilter = false;
-
-            _AllLocalLicensesHistory = clsLicense.GetLocalLicensesList(_PersonID);
-            dgvLocal.DataSource = _AllLocalLicensesHistory;
-            lblLocalRecords.Text = dgvLocal.Rows.Count.ToString();
-
-            if(dgvLocal.Rows.Count>0)
+            if (_PersonID != -1)
             {
-                dgvLocal.Columns["Class Name"].Width = 200;
-                dgvLocal.Columns["Issue Date"].Width = 150;
-                dgvLocal.Columns["Expiration Date"].Width = 150;
+                ucPersonInformationWithFilteration1.LoadData(_PersonID);
+                ucPersonInformationWithFilteration1.EnableFilter = false;
+                ucDriverLicenses1.LoadLicensesByPersonID(_PersonID);
+
+                if (ucDriverLicenses1.DriverID == -1) this.Close();
+                return;
             }
+
+            ucPersonInformationWithFilteration1.EnableFilter = true;
+            ucPersonInformationWithFilteration1.FilterFocus();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void ucPersonInformationWithFilteration1_OnPersonSelected(int obj)
+        {
+            ucDriverLicenses1.LoadLicensesByPersonID(obj);
+        }
+
+
     }
 }

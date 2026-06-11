@@ -13,8 +13,19 @@ namespace DVLD_Project
 {
     public partial class ucDrivingLicenseApplicationInfo : UserControl
     {
-       
+
+        int LicenseID = -1;
         clsLocalDrivingApplicationLicense _LocalDrivingApplicationInfo;
+
+
+        public clsLocalDrivingApplicationLicense LocalDrivingApplicationInfo
+        {
+            get
+            {
+                return _LocalDrivingApplicationInfo;
+            }
+        }
+
         public ucDrivingLicenseApplicationInfo()
         {
             InitializeComponent();
@@ -56,8 +67,9 @@ namespace DVLD_Project
 
         private void _ShowLocalApplicationInfo()
         {
+            LicenseID= _LocalDrivingApplicationInfo.GetActiveLicenseClassForPerson();
+            llShowLicenceInfo.Enabled = (LicenseID != -1);
 
-            llShowLicenceInfo.Enabled =_LocalDrivingApplicationInfo.IsHaveActiveLicenseClass();
             lblDLAppID.Text = _LocalDrivingApplicationInfo.LocalDrivingApplicationLicenseID.ToString();
             lblLIcenseClass.Text = _LocalDrivingApplicationInfo.LicenseClasssInfo.ClassName;
             lblPassedTests.Text = _LocalDrivingApplicationInfo.GetNumberOfPassedTests().ToString();
@@ -67,7 +79,7 @@ namespace DVLD_Project
 
         private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LicenseInfo frm = new LicenseInfo(_LocalDrivingApplicationInfo.ApplicationID);
+            LicenseInfo frm = new LicenseInfo(LicenseID);
             frm.ShowDialog();
         }
     }  

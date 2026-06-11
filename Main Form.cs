@@ -96,5 +96,12 @@ namespace DVLD_Project
 
             frmListDrivers.ShowDialog();
         }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LocalDrivingLicenseApplications frm = new LocalDrivingLicenseApplications();
+
+            frm.ShowDialog();
+        }
     }
 }

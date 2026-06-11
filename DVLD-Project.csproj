@@ -108,6 +108,24 @@
     <Compile Include="ScheduleTest.Designer.cs">
       <DependentUpon>ScheduleTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucDriverLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDriverLicenses.Designer.cs">
+      <DependentUpon>ucDriverLicenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucScheduledTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucScheduledTest.Designer.cs">
+      <DependentUpon>ucScheduledTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucScheduleTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucScheduleTest.Designer.cs">
+      <DependentUpon>ucScheduleTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucShowApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -263,8 +281,17 @@
     <EmbeddedResource Include="TestType\UpdateTestType.resx">
       <DependentUpon>UpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucDriverLicenses.resx">
+      <DependentUpon>ucDriverLicenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucDrivingLicenseApplicationInfo.resx">
       <DependentUpon>ucDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucScheduledTest.resx">
+      <DependentUpon>ucScheduledTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucScheduleTest.resx">
+      <DependentUpon>ucScheduleTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucShowApplicationInfo.resx">
       <DependentUpon>ucShowApplicationInfo.cs</DependentUpon>
@@ -534,6 +561,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PersonLicenseHistory 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WallPaper21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Renew Driving License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Damaged Driving License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Detained Driving License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Retake Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\International 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\License View 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

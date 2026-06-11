@@ -16,7 +16,8 @@ namespace DVLD_Project
         int _LDLAppID = -1;
 
         DataTable _AllApointments;
-        clsTestTypes.enTestType _TestType = clsTestTypes.enTestType.None;
+        clsLocalDrivingApplicationLicense _LDLAppInfo;
+        clsTestTypes.enTestType _TestType = clsTestTypes.enTestType.VisionTest;
 
         public AddEditTestAppointments(int LocalDrivingLicenseApplicationID, clsTestTypes.enTestType TestType)
         {
@@ -27,7 +28,8 @@ namespace DVLD_Project
         }
 
         private void VisionTestAppointments_Load(object sender, EventArgs e)
-        {
+        { 
+
             switch (_TestType)
             {
                 case clsTestTypes.enTestType.VisionTest:
@@ -60,16 +62,19 @@ namespace DVLD_Project
                     break;
             }
 
+            
             if (ucDrivingLicenseApplicationInfo1.LoadLocalApplicationInfo(_LDLAppID))
             {
-                _AllApointments =
-                 clsTestAppointment.GetAllAppointmentsForApplication(_LDLAppID,_TestType);
+                _LDLAppInfo = ucDrivingLicenseApplicationInfo1.LocalDrivingApplicationInfo;
+
+                _AllApointments = _LDLAppInfo.GetAllAppointmentsForTest(_TestType);
+                
 
                 dgvData.DataSource = _AllApointments;
                 lblRecords.Text = dgvData.Rows.Count.ToString();
 
 
-                if(dgvData.Rows.Count >0)
+                if(dgvData.Rows.Count > 0)
                 {
                     dgvData.Columns["TestAppointmentID"].Width = 200;
                     dgvData.Columns["AppointmentDate"].Width = 200;
@@ -80,14 +85,14 @@ namespace DVLD_Project
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            if(clsTestAppointment.IsHasActiveTestAppointment(_LDLAppID,_TestType))
+            if(_LDLAppInfo.IsHasActiveTestAppointment(_TestType))
             {
                 MessageBox.Show("This person already have an active appointment for this test,You can not add new appointment", "Not allowed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (clsTest.IsPassedThisTest(_LDLAppID, _TestType))
+            if (_LDLAppInfo.IsPassedThisTest(_TestType))
             {
                 MessageBox.Show("This person already passed this test befor,you can only retake failed test", "Not allowed", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -108,14 +113,8 @@ namespace DVLD_Project
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if((bool)dgvData.CurrentRow.Cells[3].Value)
-            {
-                MessageBox.Show("The test has already been completed and the result has been recorded.", "Finshed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            TakeTest frmTakeTest = new TakeTest((int)dgvData.CurrentRow.Cells[0].Value);
+      
+            TakeTest frmTakeTest = new TakeTest((int)dgvData.CurrentRow.Cells[0].Value, _TestType);
 
             frmTakeTest.ShowDialog();
 
@@ -126,7 +125,7 @@ namespace DVLD_Project
         {
             int AppointmentID =(int)dgvData.CurrentRow.Cells[0].Value;
 
-            ScheduleTest frmAppointment = new ScheduleTest(AppointmentID,_LDLAppID, _TestType);
+           ScheduleTest frmAppointment = new ScheduleTest(_LDLAppID, _TestType, AppointmentID);
 
             frmAppointment.ShowDialog();
            

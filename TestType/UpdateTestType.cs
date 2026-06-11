@@ -13,7 +13,7 @@ namespace DVLD_Project
 {
     public partial class UpdateTestType : Form
     {
-        clsTestTypes.enTestType _TestTypeID = clsTestTypes.enTestType.None;
+        clsTestTypes.enTestType _TestTypeID = clsTestTypes.enTestType.VisionTest;
         clsTestTypes _TestType;
         public UpdateTestType(clsTestTypes.enTestType TestTypeID)
         {

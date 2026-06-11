@@ -13,12 +13,12 @@ namespace DVLD_Project
 {
     public partial class LicenseInfo : Form
     {
-        int _ApplicationID = -1;
-        public LicenseInfo(int ApplicationID)
+        int _LicenseID = -1;
+        public LicenseInfo(int LicenseID)
         {
             InitializeComponent();
-            _ApplicationID = ApplicationID;
 
+            _LicenseID = LicenseID;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace DVLD_Project
 
         private void LicenseInfo_Load(object sender, EventArgs e)
         {
-            ucShowDriverLicenseInfo1.LoadDriverLicenseInfo(_ApplicationID);
+            ucShowDriverLicenseInfo1.LoadDriverLicenseInfo(_LicenseID);
         }
     }
 }

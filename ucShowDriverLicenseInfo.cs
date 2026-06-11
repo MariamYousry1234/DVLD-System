@@ -14,20 +14,20 @@ namespace DVLD_Project
 {
     public partial class ucShowDriverLicenseInfo : UserControl
     {
-        int _ApplicationID = -1;
-        clsLicense License;
-        clsDriver Driver;
 
+
+        clsLicense License;
+    
         public ucShowDriverLicenseInfo()
         {
             InitializeComponent();
         }
 
 
-        public void LoadDriverLicenseInfo(int ApplicationID)
+        public void LoadDriverLicenseInfo(int LicenseID)
         {
            
-            License = clsLicense.FindByApplicationID(ApplicationID);
+            License = clsLicense.Find(LicenseID);
 
             if(License==null)
             {
@@ -37,48 +37,34 @@ namespace DVLD_Project
                 return;
             }
 
-            Driver = clsDriver.Find(License.DriverID);
 
             lblClass.Text = License.LicenseClassInfo.ClassName;
-            lblName.Text = Driver.PersonInfo.GetFullName;
+            lblName.Text = License.DriverInfo.PersonInfo.GetFullName;
             lblLicenseID.Text = License.LicenseID.ToString();
-            lblNationalNo.Text = Driver.PersonInfo.NationalNo;
-            lblGender.Text = Driver.PersonInfo.Gender == 1 ? "Male" : "Female";
+            lblNationalNo.Text = License.DriverInfo.PersonInfo.NationalNo;
+            lblGender.Text = License.DriverInfo.PersonInfo.Gender == 1 ? "Male" : "Female";
             lblIssueDate.Text = License.IssueDate.ToString("dd/MM/yyyy");
-
-            switch (License.IssueReason)
-            {
-                case clsLicense.enIssueReason.FirstTime:
-                    lblIssueReason.Text = "First Time";
-                    break;
-
-                case clsLicense.enIssueReason.Renew:
-                    lblIssueReason.Text = "Renew";
-                    break;
-
-                case clsLicense.enIssueReason.ReplacementForDamaged:
-                    lblIssueReason.Text = "Replacement For Damaged";
-                    break;
-
-                case clsLicense.enIssueReason.ReplacementForLost:
-                    lblIssueReason.Text = "Replacement For Lost";
-                    break;
-
-            }
-
+            lblIssueReason.Text = License.txtIssueReason;
             lblNotes.Text = License.Notes == "" ? "No Notes" : License.Notes;
             lblIsActive.Text = License.IsActive ? "Yes" : "No";
-            lblDateOfBirth.Text = Driver.PersonInfo.DateOfBirth.ToString("dd/MM/yyyy");
-            lblDriverID.Text = Driver.DriverID.ToString();
+            lblDateOfBirth.Text = License.DriverInfo.PersonInfo.DateOfBirth.ToString("dd/MM/yyyy");
+            lblDriverID.Text = License.DriverInfo.DriverID.ToString();
             lblExpirationDate.Text = License.ExpiryDate.ToString("dd/MM/yyyy");
 
+            //
             lblIsDetained.Text = "No";
 
 
-            if(!string.IsNullOrEmpty(Driver.PersonInfo.ImagePath))
-                pbImage.ImageLocation=Driver.PersonInfo.ImagePath;
+            if(!string.IsNullOrEmpty(License.DriverInfo.PersonInfo.ImagePath))
+            {
+                if (File.Exists(License.DriverInfo.PersonInfo.ImagePath))
+                    pbImage.ImageLocation = License.DriverInfo.PersonInfo.ImagePath;
+                else
+                    MessageBox.Show("Could not find this image!", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+            } 
             else
-                pbImage.Image =Driver.PersonInfo.Gender == 1 ?Properties.Resources.Male_512
+                pbImage.Image = License.DriverInfo.PersonInfo.Gender == 1 ?Properties.Resources.Male_512
                     : Properties.Resources.Female_512;
 
         }

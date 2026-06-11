@@ -146,5 +146,13 @@ namespace DVLD_Project
             frmPersonDetails.ShowDialog();
         }
 
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LicenseHistory frm = new LicenseHistory((int)dgvData.CurrentRow.Cells[0].Value);
+
+            frm.ShowDialog();
+
+            ManagePeople_Load(null, null);
+        }
     }
 }

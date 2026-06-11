@@ -44,9 +44,12 @@ namespace DVLD_Project
             if( txtFiltering.Visible = (cbFilter.Text != "None"))
             {
                 txtFiltering.Focus();
-                txtFiltering.Clear();  
+                txtFiltering.Clear();
+                return;
             }
-
+            
+             _AllDrivers.DefaultView.RowFilter = "";
+            lblRecords.Text = dgvData.Rows.Count.ToString();
         }
 
         private void txtFiltering_KeyPress(object sender, KeyPressEventArgs e)
@@ -57,11 +60,11 @@ namespace DVLD_Project
 
         private void txtFiltering_TextChanged(object sender, EventArgs e)
         {
-            if (cbFilter.Text == "None")
+            if (cbFilter.Text == "None" || string.IsNullOrEmpty(txtFiltering.Text))
                 _AllDrivers.DefaultView.RowFilter = "";
 
-            if(cbFilter.Text=="NationalNo" || cbFilter.Text=="Full Name")
-                _AllDrivers.DefaultView.RowFilter = $"{cbFilter.Text}like '{txtFiltering.Text}%'";
+            else if(cbFilter.Text=="NationalNo" || cbFilter.Text=="Full Name")
+                _AllDrivers.DefaultView.RowFilter = $"[{cbFilter.Text}] like '{txtFiltering.Text}%'";
             else
                 _AllDrivers.DefaultView.RowFilter = $"{cbFilter.Text}={txtFiltering.Text}";
 
@@ -69,5 +72,21 @@ namespace DVLD_Project
 
         }
 
+        private void showPersonInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            PersonDetails frm = new PersonDetails((int)dgvData.CurrentRow.Cells[1].Value);
+
+            frm.ShowDialog();
+            ManageDrivers_Load(null, null);
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LicenseHistory frm = new LicenseHistory((int)dgvData.CurrentRow.Cells[1].Value);
+
+            frm.ShowDialog();
+            ManageDrivers_Load(null, null);
+        }
     }
 }
