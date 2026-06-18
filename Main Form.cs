@@ -103,5 +103,12 @@ namespace DVLD_Project
 
             frm.ShowDialog();
         }
+
+        private void internationalLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageInternationalLicenses frm = new ManageInternationalLicenses();
+
+            frm.ShowDialog();
+        }
     }
 }

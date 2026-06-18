@@ -278,7 +278,7 @@ namespace DVLD_Project
 
         bool HandleAppointmentDate()
          {
-            if (dtpDate.Value < DateTime.Now)
+            if (dtpDate.Value.Date < DateTime.Today)
             {
                 MessageBox.Show("The appointment date must be in the future.",
                   "Invalid Date",

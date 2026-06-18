@@ -15,7 +15,8 @@ namespace DVLD_Project
     public partial class ucShowDriverLicenseInfo : UserControl
     {
 
-
+        int _LicenseID = -1;
+        int _DriverID = -1;
         clsLicense License;
     
         public ucShowDriverLicenseInfo()
@@ -23,20 +24,38 @@ namespace DVLD_Project
             InitializeComponent();
         }
 
+        public int LicenseID
+        {
+            get
+            {
+                return _LicenseID;
+            }
+        }
+
+        public int DriverID
+        {
+            get
+            {
+                return _DriverID;
+            }
+        }
 
         public void LoadDriverLicenseInfo(int LicenseID)
         {
            
             License = clsLicense.Find(LicenseID);
-
+            
             if(License==null)
             {
-                MessageBox.Show("This license Not found !", "Error", MessageBoxButtons.OK,
+                MessageBox.Show("Couldn't find license ID!", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-       
+                _LicenseID = -1;
+                _DriverID = -1;
                 return;
             }
 
+            _LicenseID = LicenseID;
+            _DriverID = License.DriverID;
 
             lblClass.Text = License.LicenseClassInfo.ClassName;
             lblName.Text = License.DriverInfo.PersonInfo.GetFullName;
