@@ -16,7 +16,7 @@ namespace DVLD_Project
         int _DriverID = -1;
         clsDriver _Driver ;
         DataTable _AllLocalLicensesHistory=new DataTable();
-
+        DataTable _AllInternationalLicenses=new DataTable();
         public ucDriverLicenses()
         {
             InitializeComponent();
@@ -30,6 +30,8 @@ namespace DVLD_Project
                 return _DriverID;
             }
         }
+
+
         void LoadLocalLicenses()
         {
             _AllLocalLicensesHistory = _Driver.GetLocalLicensesList();
@@ -41,6 +43,19 @@ namespace DVLD_Project
                 dgvLocal.Columns["Class Name"].Width = 200;
                 dgvLocal.Columns["Issue Date"].Width = 150;
                 dgvLocal.Columns["Expiration Date"].Width = 150;
+            }
+        }
+
+        void LoadInternationalLicenses()
+        {
+            _AllInternationalLicenses = _Driver.GetInternationalLicense();
+            dgvInternational.DataSource = _AllInternationalLicenses;
+            lblInternationalRecords.Text = dgvInternational.Rows.Count.ToString();
+
+            if (dgvLocal.Rows.Count > 0)
+            {
+                dgvInternational.Columns["Issue Date"].Width = 150;
+                dgvInternational.Columns["Expiration Date"].Width = 150;
             }
         }
 
@@ -59,6 +74,8 @@ namespace DVLD_Project
             }
             _DriverID = _Driver.DriverID;
             LoadLocalLicenses();
+            LoadInternationalLicenses();
+
         }
         public void LoadLicensesByPersonID(int PersonID)
         {
@@ -77,12 +94,13 @@ namespace DVLD_Project
             }
             _DriverID = _Driver.DriverID;
             LoadLocalLicenses();
+            LoadInternationalLicenses();
         }
 
         public void Clear()
         {
             _AllLocalLicensesHistory.Clear();
-           
+            _AllInternationalLicenses.Clear();
         }
 
         private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)

@@ -17,7 +17,7 @@ namespace DVLD_Project
 
         int _LicenseID = -1;
         int _DriverID = -1;
-        clsLicense License;
+        clsLicense _License;
     
         public ucShowDriverLicenseInfo()
         {
@@ -40,52 +40,82 @@ namespace DVLD_Project
             }
         }
 
+        public clsLicense License
+        {
+            get
+            {
+                return _License;
+            }
+        }
         public void LoadDriverLicenseInfo(int LicenseID)
         {
-           
-            License = clsLicense.Find(LicenseID);
+
+            _License = clsLicense.Find(LicenseID);
             
-            if(License==null)
+            if(_License == null)
             {
-                MessageBox.Show("Couldn't find license ID!", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                SetIntialInfo();
                 _LicenseID = -1;
                 _DriverID = -1;
+                MessageBox.Show("Couldn't find license ID!", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 
             _LicenseID = LicenseID;
-            _DriverID = License.DriverID;
+            _DriverID = _License.DriverID;
 
-            lblClass.Text = License.LicenseClassInfo.ClassName;
-            lblName.Text = License.DriverInfo.PersonInfo.GetFullName;
-            lblLicenseID.Text = License.LicenseID.ToString();
-            lblNationalNo.Text = License.DriverInfo.PersonInfo.NationalNo;
-            lblGender.Text = License.DriverInfo.PersonInfo.Gender == 1 ? "Male" : "Female";
-            lblIssueDate.Text = License.IssueDate.ToString("dd/MM/yyyy");
-            lblIssueReason.Text = License.txtIssueReason;
-            lblNotes.Text = License.Notes == "" ? "No Notes" : License.Notes;
-            lblIsActive.Text = License.IsActive ? "Yes" : "No";
-            lblDateOfBirth.Text = License.DriverInfo.PersonInfo.DateOfBirth.ToString("dd/MM/yyyy");
-            lblDriverID.Text = License.DriverInfo.DriverID.ToString();
-            lblExpirationDate.Text = License.ExpiryDate.ToString("dd/MM/yyyy");
+            lblClass.Text = _License.LicenseClassInfo.ClassName;
+            lblName.Text = _License.DriverInfo.PersonInfo.GetFullName;
+            lblLicenseID.Text = _License.LicenseID.ToString();
+            lblNationalNo.Text = _License.DriverInfo.PersonInfo.NationalNo;
+            lblGender.Text = _License.DriverInfo.PersonInfo.Gender == 1 ? "Male" : "Female";
+            lblIssueDate.Text = _License.IssueDate.ToString("dd/MM/yyyy");
+            lblIssueReason.Text = _License.txtIssueReason;
+            lblNotes.Text = _License.Notes == "" ? "No Notes" : _License.Notes;
+            lblIsActive.Text = _License.IsActive ? "Yes" : "No";
+            lblDateOfBirth.Text = _License.DriverInfo.PersonInfo.DateOfBirth.ToString("dd/MM/yyyy");
+            lblDriverID.Text = _License.DriverInfo.DriverID.ToString();
+            lblExpirationDate.Text = _License.ExpiryDate.ToString("dd/MM/yyyy");
 
             //
             lblIsDetained.Text = "No";
 
 
-            if(!string.IsNullOrEmpty(License.DriverInfo.PersonInfo.ImagePath))
+            if(!string.IsNullOrEmpty(_License.DriverInfo.PersonInfo.ImagePath))
             {
-                if (File.Exists(License.DriverInfo.PersonInfo.ImagePath))
-                    pbImage.ImageLocation = License.DriverInfo.PersonInfo.ImagePath;
+                if (File.Exists(_License.DriverInfo.PersonInfo.ImagePath))
+                    pbImage.ImageLocation = _License.DriverInfo.PersonInfo.ImagePath;
                 else
                     MessageBox.Show("Could not find this image!", "Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
             } 
             else
-                pbImage.Image = License.DriverInfo.PersonInfo.Gender == 1 ?Properties.Resources.Male_512
+                pbImage.Image = _License.DriverInfo.PersonInfo.Gender == 1 ?Properties.Resources.Male_512
                     : Properties.Resources.Female_512;
 
+        }
+
+        void SetIntialInfo()
+        {
+            lblClass.Text = "???";
+            lblName.Text = "???";
+            lblLicenseID.Text = "???";
+            lblNationalNo.Text = "???";
+            lblGender.Text = "???";
+            lblIssueDate.Text = "???";
+            lblIssueReason.Text = "???";
+            lblNotes.Text = "???";
+            lblIsActive.Text = "???";
+            lblDateOfBirth.Text = "???";
+            lblDriverID.Text = "???";
+            lblExpirationDate.Text = "???";
+
+            //
+            lblIsDetained.Text = "???";
+
+            pbImage.Image = Properties.Resources.Male_512;
+                
         }
         private void ucShowDriverLicenseInfo_Load(object sender, EventArgs e)
         {

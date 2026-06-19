@@ -60,6 +60,12 @@
     <Compile Include="ApplicationType\UpdateApplicationType.Designer.cs">
       <DependentUpon>UpdateApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="InternationalDriverInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InternationalDriverInfo.Designer.cs">
+      <DependentUpon>InternationalDriverInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="LocalLicense\IssueDrivingLicenseForTheFirstTime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     <Compile Include="ucShowDriverLicenseInfo.Designer.cs">
       <DependentUpon>ucShowDriverLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucShowInternationalLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucShowInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>ucShowInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +278,9 @@
     <EmbeddedResource Include="ApplicationType\UpdateApplicationType.resx">
       <DependentUpon>UpdateApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InternationalDriverInfo.resx">
+      <DependentUpon>InternationalDriverInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocalLicense\IssueDrivingLicenseForTheFirstTime.resx">
       <DependentUpon>IssueDrivingLicenseForTheFirstTime.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucShowDriverLicenseInfo.resx">
       <DependentUpon>ucShowDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucShowInternationalLicenseInfo.resx">
+      <DependentUpon>ucShowInternationalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
@@ -615,6 +633,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\License View 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male 5121.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

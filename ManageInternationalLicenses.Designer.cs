@@ -201,6 +201,7 @@
             this.Name = "ManageInternationalLicenses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage International Licenses";
+            this.Load += new System.EventHandler(this.ManageInternationalLicenses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).EndInit();
             this.ResumeLayout(false);
