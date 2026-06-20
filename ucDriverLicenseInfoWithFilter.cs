@@ -14,7 +14,6 @@ namespace DVLD_Project
     public partial class ucDriverLicenseInfoWithFilter : UserControl
     {
 
-        int _LicenseID = -1;
         public ucDriverLicenseInfoWithFilter()
         {
             InitializeComponent();
@@ -36,6 +35,7 @@ namespace DVLD_Project
             {
                 return ucShowDriverLicenseInfo1.LicenseID;
             }
+ 
         }
 
         public clsLicense License
@@ -63,14 +63,14 @@ namespace DVLD_Project
 
         private void btnSearching_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren())
+            if (!this.ValidateChildren())
             {
-                _LicenseID =
-                    clsInternationalLicense.IsLocalLicenseAllowedApplyToInternational(Convert.ToInt32(txtSearch.Text.Trim()))?
-                    Convert.ToInt32(txtSearch.Text.Trim()) : -1;
+                MessageBox.Show("Enter a valid LicenseID","",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                txtSearch.Focus();
+                return;
             }
      
-            ucShowDriverLicenseInfo1.LoadDriverLicenseInfo(_LicenseID);
+            ucShowDriverLicenseInfo1.LoadDriverLicenseInfo(int.Parse(txtSearch.Text.Trim()));
 
             if (OnLicenseSelected != null)
                 OnLicenseSelected(ucShowDriverLicenseInfo1.LicenseID);
@@ -83,7 +83,7 @@ namespace DVLD_Project
 
         private void txtSearch_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtSearch.Text))
+            if (string.IsNullOrEmpty(txtSearch.Text.Trim()))
             {
                 errorProvider1.SetError(txtSearch, "This field is required !");
                 e.Cancel = true;
@@ -92,7 +92,6 @@ namespace DVLD_Project
             {
                 errorProvider1.SetError(txtSearch, null);
                 e.Cancel = false;
-
             }
         }
     }
