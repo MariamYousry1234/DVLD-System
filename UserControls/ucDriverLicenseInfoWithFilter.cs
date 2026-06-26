@@ -53,6 +53,18 @@ namespace DVLD_Project
                 gbFilter.Enabled = value;
             }
         }
+
+        public void LoadInfo(int LicenseID)
+        {
+            //ucShowDriverLicenseInfo1.LoadDriverLicenseInfo(LicenseID);
+            txtSearch.Text = LicenseID.ToString();
+            gbFilter.Enabled = false;
+
+            //if (OnLicenseSelected != null)
+            //    OnLicenseSelected(ucShowDriverLicenseInfo1.LicenseID);
+
+            btnSearching_Click(null, null);
+        }
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)

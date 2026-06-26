@@ -133,13 +133,13 @@ namespace DVLD_Project
                 errorProvider1.SetError(txtUsername, "Username cannot be blank");
              
             }
-            if (_Mode == enMode.AddNew && clsUser.IsPersonIDExists(_User.PersonID))
+            else if (_Mode == enMode.AddNew && clsUser.IsUsernameExists(txtUsername.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtUsername, "username is used by another user");
             }
-            if (_Mode == enMode.Update && txtUsername.Text != _User.Username 
-                && clsUser.IsPersonIDExists(_User.PersonID) )
+             else if (_Mode == enMode.Update && txtUsername.Text != _User.Username
+                 && clsUser.IsUsernameExists(txtUsername.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtUsername, "username is used by another user");
@@ -175,7 +175,7 @@ namespace DVLD_Project
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (_User.PersonID == -1)
+            if (ucPersonInformationWithFilteration1.PersonID == -1)
             {
                 btnSave.Enabled = false;
                 MessageBox.Show("Please select a person !", "Error", MessageBoxButtons.OK,

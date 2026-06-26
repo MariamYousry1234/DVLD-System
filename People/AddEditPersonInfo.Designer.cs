@@ -459,6 +459,8 @@
             this.Controls.Add(this.lblPersonID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddEditPersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditPersonInfo";

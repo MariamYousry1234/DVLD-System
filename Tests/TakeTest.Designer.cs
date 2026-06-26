@@ -157,6 +157,8 @@
             this.Controls.Add(this.rbFail);
             this.Controls.Add(this.rbPass);
             this.Controls.Add(this.label8);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TakeTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Take Test";

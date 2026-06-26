@@ -102,6 +102,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ucPersonInformationWithFilteration1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LicenseHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "License History";

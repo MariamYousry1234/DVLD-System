@@ -88,6 +88,8 @@
             this.Controls.Add(this.ucShowInternationalLicenseInfo1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pbPeople);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "InternationalDriverInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "International Driver Info";

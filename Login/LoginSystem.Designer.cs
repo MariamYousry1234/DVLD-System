@@ -229,8 +229,7 @@
             this.Name = "LoginSystem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginSystem_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginSystem_FormClosed);
+            this.Activated += new System.EventHandler(this.LoginSystem_Activated);
             this.Load += new System.EventHandler(this.LoginSystem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

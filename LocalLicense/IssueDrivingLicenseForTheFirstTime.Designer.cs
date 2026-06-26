@@ -101,6 +101,8 @@
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucDrivingLicenseApplicationInfo1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "IssueDrivingLicenseForTheFirstTime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Issue Driving License For The First Time";

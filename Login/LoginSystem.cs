@@ -79,18 +79,17 @@ namespace DVLD_Project
                 {
                     txtUsername.Text = Text[0];
                     txtPassword.Text = Text[1];
-                }        
+                }
+
+                txtUsername.SelectionStart = txtUsername.TextLength;
+               
             }
         }
 
-        private void LoginSystem_FormClosing(object sender, FormClosingEventArgs e)
+        private void LoginSystem_Activated(object sender, EventArgs e)
         {
-           
-        }
-
-        private void LoginSystem_FormClosed(object sender, FormClosedEventArgs e)
-        {
-         
+            if(chkRememberMe.Checked)
+                btnLogin.Focus();
         }
     }
 }

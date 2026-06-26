@@ -75,6 +75,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucPersonInformation1);
             this.Controls.Add(this.lblTitle);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PersonDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonDetails";

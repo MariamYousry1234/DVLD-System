@@ -158,6 +158,8 @@
             this.Controls.Add(this.txtCurrentPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucShowUserInfo1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePassword";

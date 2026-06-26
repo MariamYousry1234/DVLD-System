@@ -37,7 +37,6 @@
             this.tbPersonalInfo = new System.Windows.Forms.TabPage();
             this.ucPersonInformationWithFilteration1 = new DVLD_Project.ucPersonInformationWithFilteration();
             this.tbLoginInfo = new System.Windows.Forms.TabPage();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.txtConfrimPassword = new System.Windows.Forms.TextBox();
@@ -48,11 +47,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tbPersonalInfo.SuspendLayout();
             this.tbLoginInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -138,6 +138,7 @@
             // ucPersonInformationWithFilteration1
             // 
             this.ucPersonInformationWithFilteration1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ucPersonInformationWithFilteration1.EnableFilter = true;
             this.ucPersonInformationWithFilteration1.Location = new System.Drawing.Point(7, 7);
             this.ucPersonInformationWithFilteration1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ucPersonInformationWithFilteration1.Name = "ucPersonInformationWithFilteration1";
@@ -155,10 +156,6 @@
             this.tbLoginInfo.TabIndex = 1;
             this.tbLoginInfo.Text = "Login Info";
             this.tbLoginInfo.UseVisualStyleBackColor = true;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // gbLogin
             // 
@@ -199,6 +196,7 @@
             this.txtConfrimPassword.PasswordChar = '*';
             this.txtConfrimPassword.Size = new System.Drawing.Size(238, 31);
             this.txtConfrimPassword.TabIndex = 16;
+            this.txtConfrimPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfrimPassword_Validating);
             // 
             // label5
             // 
@@ -218,6 +216,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(238, 31);
             this.txtPassword.TabIndex = 14;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // label4
             // 
@@ -236,6 +235,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(238, 31);
             this.txtUsername.TabIndex = 12;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // label3
             // 
@@ -267,6 +267,10 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "User ID :";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddEditUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,6 +281,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblTitle);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddEditUserInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add User Info";
@@ -284,9 +290,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tbPersonalInfo.ResumeLayout(false);
             this.tbLoginInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -62,6 +62,8 @@
             this.ClientSize = new System.Drawing.Size(755, 459);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ucDrivingLicenseApplicationInfo1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LocalDrivingLicenseApplicationInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Local Driving License Application Info";

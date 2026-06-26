@@ -116,5 +116,47 @@ namespace DVLD_Project
             NewInternationalLicenseApplication frm = new NewInternationalLicenseApplication();
             frm.ShowDialog();
         }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RenewLocalDrivingLicense frm = new RenewLocalDrivingLicense();
+
+            frm.ShowDialog();
+        }
+
+        private void replacementForLostOrDamageLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReplacementForLostOrDamaged frm = new ReplacementForLostOrDamaged();
+           
+            frm.ShowDialog();
+        }
+
+        private void detainLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DetainLicense frm = new DetainLicense();
+
+            frm.ShowDialog();
+        }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReleaseDetainedLicense frm = new ReleaseDetainedLicense();
+
+            frm.ShowDialog();
+        }
+
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageDetainedLicenses frm = new ManageDetainedLicenses();
+
+            frm.ShowDialog();
+        }
+
+        private void relaseDenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReleaseDetainedLicense frm = new ReleaseDetainedLicense();
+
+            frm.ShowDialog();
+        }
     }
 }

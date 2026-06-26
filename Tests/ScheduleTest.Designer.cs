@@ -63,6 +63,8 @@
             this.ClientSize = new System.Drawing.Size(522, 750);
             this.Controls.Add(this.ucScheduleTest1);
             this.Controls.Add(this.btnClose);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ScheduleTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule Test";

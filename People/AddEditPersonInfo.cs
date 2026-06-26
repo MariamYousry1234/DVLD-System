@@ -63,6 +63,7 @@ namespace DVLD_Project
             FillCountries();
             rbMale.Checked = true;
             pbImage.Image = Properties.Resources.Male_512;
+            llRemove.Visible = false;
             _Person = new clsPerson();
         }
 

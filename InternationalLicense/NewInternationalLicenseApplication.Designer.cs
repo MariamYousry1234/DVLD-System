@@ -313,6 +313,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ucDriverLicenseInfoWithFilter1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewInternationalLicenseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New International License Application";

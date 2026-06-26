@@ -73,7 +73,13 @@ namespace DVLD_Project
             {
                 txtFiltering.Clear();
                 txtFiltering.Focus();
+                return;
             }
+
+           
+                _AllPeopleView.DefaultView.RowFilter = "";
+                lblRecords.Text = dgvData.Rows.Count.ToString();
+            
         }
 
         private void txtFiltering_KeyPress(object sender, KeyPressEventArgs e)
@@ -86,7 +92,7 @@ namespace DVLD_Project
 
         private void txtFiltering_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtFiltering.Text))
+            if (string.IsNullOrEmpty(txtFiltering.Text) )
             {
                 _AllPeopleView.DefaultView.RowFilter = "";
                 lblRecords.Text = dgvData.Rows.Count.ToString();

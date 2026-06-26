@@ -78,8 +78,8 @@ namespace DVLD_Project
             lblDriverID.Text = _License.DriverInfo.DriverID.ToString();
             lblExpirationDate.Text = _License.ExpiryDate.ToString("dd/MM/yyyy");
 
-            //
-            lblIsDetained.Text = "No";
+            
+            lblIsDetained.Text = _License.IsDetained ? "Yes":"No" ;
 
 
             if(!string.IsNullOrEmpty(_License.DriverInfo.PersonInfo.ImagePath))
