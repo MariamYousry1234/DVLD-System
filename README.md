@@ -43,7 +43,6 @@ The project follows the **3-Tier Architecture** to separate responsibilities int
 - Windows Forms
 - ADO.NET
 - SQL Server
-- T-SQL
 - 3-Tier Architecture
 - Object-Oriented Programming (OOP)
 
