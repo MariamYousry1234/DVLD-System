@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.37012.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD-Project", "DVLD-Project.csproj", "{79A82897-F232-4660-BF87-C7F21DCC9FC8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busniess Logic", "Busniess Logic\Busniess Logic.csproj", "{6CABCC45-424D-460A-BDF0-1EF076059AA3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Access", "Data Access\Data Access.csproj", "{546976A6-A75C-487B-B49C-A603E64A9397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD-Project", "Presentation\DVLD-Project.csproj", "{79A82897-F232-4660-BF87-C7F21DCC9FC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CABCC45-424D-460A-BDF0-1EF076059AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6CABCC45-424D-460A-BDF0-1EF076059AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CABCC45-424D-460A-BDF0-1EF076059AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{546976A6-A75C-487B-B49C-A603E64A9397}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{546976A6-A75C-487B-B49C-A603E64A9397}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{546976A6-A75C-487B-B49C-A603E64A9397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A82897-F232-4660-BF87-C7F21DCC9FC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

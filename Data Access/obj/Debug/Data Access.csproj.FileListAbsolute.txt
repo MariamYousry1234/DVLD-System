@@ -1,0 +1,9 @@
+C:\Users\Admin\source\repos\Data Access\bin\Debug\Data Access.dll
+C:\Users\Admin\source\repos\Data Access\bin\Debug\Data Access.pdb
+C:\Users\Admin\source\repos\Data Access\bin\Debug\Common.dll
+C:\Users\Admin\source\repos\Data Access\bin\Debug\Common.pdb
+C:\Users\Admin\source\repos\Data Access\obj\Debug\Data Access.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Data Access\obj\Debug\Data Access.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Data Access\obj\Debug\Data Acc.2A753020.Up2Date
+C:\Users\Admin\source\repos\Data Access\obj\Debug\Data Access.dll
+C:\Users\Admin\source\repos\Data Access\obj\Debug\Data Access.pdb

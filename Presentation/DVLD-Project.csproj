@@ -713,7 +713,7 @@
     <None Include="Resources\PersonLicenseHistory 321.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Busniess Logic\Busniess Logic.csproj">
+    <ProjectReference Include="..\Busniess Logic\Busniess Logic.csproj">
       <Project>{6cabcc45-424d-460a-bdf0-1ef076059aa3}</Project>
       <Name>Busniess Logic</Name>
     </ProjectReference>
