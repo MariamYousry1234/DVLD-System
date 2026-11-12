@@ -5,9 +5,9 @@ VisualStudioVersion = 17.14.37012.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD-Project", "DVLD-Project.csproj", "{79A82897-F232-4660-BF87-C7F21DCC9FC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busniess Logic", "..\Busniess Logic\Busniess Logic.csproj", "{6CABCC45-424D-460A-BDF0-1EF076059AA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busniess Logic", "Busniess Logic\Busniess Logic.csproj", "{6CABCC45-424D-460A-BDF0-1EF076059AA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Access", "..\Data Access\Data Access.csproj", "{546976A6-A75C-487B-B49C-A603E64A9397}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Access", "Data Access\Data Access.csproj", "{546976A6-A75C-487B-B49C-A603E64A9397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -88,8 +88,15 @@ namespace DVLD_Project
 
         private void LoginSystem_Activated(object sender, EventArgs e)
         {
-            if(chkRememberMe.Checked)
+            if (chkRememberMe.Checked)
                 btnLogin.Focus();
+            else
+            {
+                txtUsername.Clear();
+                txtPassword.Clear();
+                txtUsername.Focus();
+            }
+                  
         }
     }
 }

@@ -452,12 +452,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Busniess Logic\Busniess Logic.csproj">
-      <Project>{6cabcc45-424d-460a-bdf0-1ef076059aa3}</Project>
-      <Name>Busniess Logic</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\account_settings 64.png" />
   </ItemGroup>
   <ItemGroup>
@@ -718,6 +712,11 @@
   <ItemGroup>
     <None Include="Resources\PersonLicenseHistory 321.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="Busniess Logic\Busniess Logic.csproj">
+      <Project>{6cabcc45-424d-460a-bdf0-1ef076059aa3}</Project>
+      <Name>Busniess Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
