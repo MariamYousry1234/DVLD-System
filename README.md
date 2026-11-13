@@ -70,9 +70,9 @@ This project was developed as an academic/training project to apply programming 
 
 ## 📸 Screenshots
 
-![Login](Screenshots/Login.png)
+![Login]([Screenshots/Login.png](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/login.PNG?raw=true))
 
-![Login](Screenshots/MainScreen.png)
+![Login]([Screenshots/MainScreen.png](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/MainScreen.PNG?raw=true))
 
 
 
