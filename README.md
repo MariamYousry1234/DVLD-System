@@ -74,7 +74,15 @@ This project was developed as an academic/training project to apply programming 
 
 ![Main Screen](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/MainScreen.PNG?raw=true)
 
+![Manage People](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/Manage%20People.PNG?raw=true)
 
+![Manage Drivers](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/Manage%20Drivers.PNG?raw=true)
+
+![Manage Local License Applications](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/Manage%20Local%20License%20Applications.PNG?raw=true)
+
+![Replacement License](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/Replacement%20License.PNG?raw=true)
+
+![International Licenses](https://github.com/MariamYousry1234/DVLD-System/blob/master/Screenshots/International%20Licenses.PNG?raw=true)
 
 
 
