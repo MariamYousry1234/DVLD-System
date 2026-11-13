@@ -70,6 +70,11 @@ This project was developed as an academic/training project to apply programming 
 
 ## 📸 Screenshots
 
+![Login](Screenshots/Login.png)
+
+![Login](Screenshots/MainScreen.png)
+
+
 
 
 
